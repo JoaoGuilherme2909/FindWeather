@@ -1,15 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {  
+  useFonts, 
+  Overpass_300Light,
+  Overpass_400Regular,
+  Overpass_600SemiBold,
+  Overpass_700Bold, 
+} from '@expo-google-fonts/overpass';
+import WellcomeScreen from './src/screens/WellcomeScreen';
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    Overpass_300Light,
+    Overpass_400Regular,
+    Overpass_600SemiBold,
+    Overpass_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <WellcomeScreen />
+    </>
   );
 }
 
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -18,3 +36,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+*/
