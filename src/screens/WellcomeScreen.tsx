@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Image, TouchableWithoutFeedback, TouchableOpacity } from "react-native";
 import numb from "../assets/imgs/numb.png";
 
-export default function(){
+export default function({ navigation } : any){
   return(
     <>
         <View style={styles.container}>
@@ -12,7 +12,7 @@ export default function(){
             {/* Texto secundário */}
             <Text style={styles.subTitle}>Com o FindWeather nunca ficou tão fácil ter a previsão do tempo na palma da sua mão </Text>
             {/* Botão */}
-            <TouchableOpacity >
+            <TouchableOpacity onPress={()=> {navigation.navigate('HomeScreen')}}>
                 <View style={styles.btn}>
                     <Text style={styles.btnText}>Iniciar</Text>
                 </View>
@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: "#1B1D22",
-        //justifyContent: "space-evenly"
     },
     numbImage: {
         marginTop:"30%",
